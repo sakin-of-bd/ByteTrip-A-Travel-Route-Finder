@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Route Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="resultAndComparison">Results & Comparison</h1>
+
+        {% if results.note %}
+            <p class="result"><em>{{ results.note }}</em></p>
+        {% endif %}
+
+        <h2 class="dijkstraa">Dijkstra (True Optima on Weighted Graphs)</h2>
+        <div class="result">
+            <p><strong>Cheapest path cost:</strong>
+                {{ "{:.0f}".format(results.dijkstra.cheapest.value) if results.dijkstra.cheapest.value is not none else "No route" }} Tk
+            </p>
+            <p class="path"><strong>Path:</strong>
+                {{ " → ".join(results.dijkstra.cheapest.path) if results.dijkstra.cheapest.value is not none else "—" }}
+            </p>
+
+            <p><strong>Shortest distance:</strong>
+                {{ "{:.0f}".format(results.dijkstra.shortest_distance.value) if results.dijkstra.shortest_distance.value is not none else "No route" }} km
+            </p>
+            <p class="path"><strong>Path:</strong>
+                {{ " → ".join(results.dijkstra.shortest_distance.path) if results.dijkstra.shortest_distance.value is not none else "—" }}
+            </p>
+
+            <p><strong>Shortest time:</strong>
+                {{ "{:.0f}".format(results.dijkstra.shortest_time.value) if results.dijkstra.shortest_time.value is not none else "No route" }} minutes
+            </p>
+            <p class="path"><strong>Path:</strong>
+                {{ " → ".join(results.dijkstra.shortest_time.path) if results.dijkstra.shortest_time.value is not none else "—" }}
+            </p>
+        </div>
+
+        <h2 class="bfss">BFS (Fewest Stops)</h2>
+        <div class="result">
+            <p><strong>Fewest stops (edges):</strong>
+                {{ results.bfs.fewest_stops.hops if results.bfs.fewest_stops.hops is not none else "No route" }}
+            </p>
+            <p class="path"><strong>Path:</strong>
+                {{ " → ".join(results.bfs.fewest_stops.path) if results.bfs.fewest_stops.hops is not none else "—" }}
+            </p>
+
+            <p><strong>Totals along BFS path</strong> <em>(not guaranteed optimal)</em>:</p>
+            <ul>
+                <li><strong>Cost:</strong> {{ "{:.0f}".format(results.bfs.totals.cost) if results.bfs.totals.cost is not none else "—" }} Tk</li>
+                <li><strong>Distance:</strong> {{ "{:.0f}".format(results.bfs.totals.distance) if results.bfs.totals.distance is not none else "—" }} km</li>
+                <li><strong>Time:</strong> {{ "{:.0f}".format(results.bfs.totals.time) if results.bfs.totals.time is not none else "—" }} minutes</li>
+            </ul>
+        </div>
+
+        <h2>Complexity</h2>
+        <div class="result">
+            <p><strong>Dijkstra:</strong> {{ results.complexity.dijkstra }}</p>
+            <p><strong>BFS:</strong> {{ results.complexity.bfs }}</p>
+        </div>
+
+        <a href="/" class="back-btn">Search Again</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+    background: url('/static/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Cambria, serif;   /* Changed from Arial to Cambria */
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(211, 198, 198, 0.3);
+    color: white;
+    backdrop-filter: blur(8px);    
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 80px;
+    box-shadow: 0 0 50px rgb(182, 214, 1);
+}
+
+
+nav img.logo {
+    height: 40px;
+    margin-right: 15px;
+}
+
+nav h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: Cambria, serif;  /* Ensures nav heading also uses Cambria */
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    font-family: Cambria, serif;  /* Form labels */
+}
+
+form select, form button {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    font-family: Cambria, serif;  
+}
+
+button, .back-btn, .map-btn {
+    background-color: #06aad3;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+    text-align: center;
+    font-family: Cambria, serif;  /* Buttons */
+}
+
+button:hover, .back-btn:hover, .map-btn:hover {
+    background-color: #af2d06;
+}
+
+.result, .path {
+    font-size: 18px;
+    margin-top: 15px;
+    font-family: Cambria, serif;  /* Result texts */
+}
+
+.logo{
+    border-radius: 10px;
+}
+
+.resultAndComparison{
+ color: #af2d06;
+ text-align: center;
+}
+
+.dijkstraa{
+ color: #af2d06;
+ text-align: center;
+}
